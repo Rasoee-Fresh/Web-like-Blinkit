@@ -19,7 +19,6 @@
       padding-bottom: 95px;
     }
 
-    /* Top Strip */
     .top-strip {
       background: #0c831f;
       color: #ffffff;
@@ -36,7 +35,6 @@
       text-decoration: none;
     }
 
-    /* Sticky Navbar */
     .navbar {
       background: #ffffff;
       padding: 10px 14px;
@@ -87,7 +85,6 @@
       color: #f59e0b;
     }
 
-    /* Blinkit Address Bar */
     .address-bar-click {
       display: flex;
       align-items: center;
@@ -98,7 +95,6 @@
       border: 1px solid #e8ecf2;
       margin-bottom: 8px;
       cursor: pointer;
-      transition: background 0.2s;
     }
 
     .address-bar-click:active {
@@ -148,7 +144,6 @@
       text-transform: uppercase;
     }
 
-    /* Search Box */
     .search-wrap {
       position: relative;
       width: 100%;
@@ -179,7 +174,6 @@
       border-color: #0c831f;
     }
 
-    /* Category Navigation */
     .category-scroll {
       display: flex;
       overflow-x: auto;
@@ -212,7 +206,6 @@
       border-color: #0c831f;
     }
 
-    /* Catalog Content */
     .main-content {
       padding: 6px 14px;
     }
@@ -224,7 +217,6 @@
       color: #111;
     }
 
-    /* Grid */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -237,7 +229,6 @@
       }
     }
 
-    /* Product Card */
     .product-card {
       background: #ffffff;
       border: 1px solid #e6e9ee;
@@ -345,7 +336,6 @@
       text-align: center;
     }
 
-    /* Fixed Bottom Floating Bar */
     .cart-float {
       position: fixed;
       bottom: 12px;
@@ -367,7 +357,6 @@
       display: flex;
     }
 
-    /* Modal Styles */
     .modal-overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -418,7 +407,6 @@
       border-bottom: 1px solid #f6f6f6;
     }
 
-    /* Customer details inside cart */
     .customer-form {
       padding: 12px 16px;
       background: #f8fafc;
@@ -480,7 +468,6 @@
       cursor: pointer;
     }
 
-    /* Address Modal Specifics */
     .address-modal-body {
       padding: 16px;
       overflow-y: auto;
@@ -501,25 +488,22 @@
 </head>
 <body>
 
-  <!-- Top Strip -->
   <div class="top-strip">
-    <div>Rasooee Fresh Club | Wholesale & Retail[span_1](start_span)[span_1](end_span)[span_2](start_span)[span_2](end_span)</div>
-    <div>Call: <a href="tel:9209116500">9209116500</a>[span_3](start_span)[span_3](end_span)</div>
+    <div>Rasooee Fresh Club | Wholesale &amp; Retail</div>
+    <div>Call: <a href="tel:9209116500">9209116500</a></div>
   </div>
 
-  <!-- Header -->
   <header class="navbar">
     <div class="brand-row">
       <div>
         <div class="brand-title">Rasoee<span>Fresh</span></div>
-        <div class="tagline">Rasoee se Dil Tak, Pure & Fresh</div>[span_4](start_span)[span_4](end_span)
+        <div class="tagline">Rasoee se Dil Tak, Pure &amp; Fresh</div>
       </div>
       <div class="time-badge">
         <i class="fa-solid fa-bolt"></i> 15 MINS
       </div>
     </div>
 
-    <!-- Blinkit Clickable Address Strip -->
     <div class="address-bar-click" id="triggerAddressModal">
       <div class="address-left">
         <i class="fa-solid fa-location-dot"></i>
@@ -528,38 +512,32 @@
             <span>Delivering to</span> <i class="fa-solid fa-angle-down" style="font-size: 10px;"></i>
           </div>
           <div class="address-sub-text" id="displayHeaderAddress">
-            SN 18, Sukhsagar Part-2, Kondhwa BK, Pune-46[span_5](start_span)[span_5](end_span)
+            SN 18, Sukhsagar Part-2, Kondhwa BK, Pune-46
           </div>
         </div>
       </div>
       <div class="change-btn-text">CHANGE</div>
     </div>
 
-    <!-- Search input -->
     <div class="search-wrap">
       <i class="fa-solid fa-magnifying-glass"></i>
       <input type="text" id="searchInput" class="search-input" placeholder='Search "Tomato", "Potato", "Milk", "Chilli"...'>
     </div>
   </header>
 
-  <!-- Categories Scrollbar -->
   <div class="category-scroll">
     <button class="cat-btn active" data-cat="All">All Items</button>
-    <button class="cat-btn" data-cat="Vegetables">Fresh Vegetables</button>[span_6](start_span)[span_6](end_span)
-    <button class="cat-btn" data-cat="Fruits">Fresh Fruits</button>[span_7](start_span)[span_7](end_span)
-    <button class="cat-btn" data-cat="Dairy">Dairy Products</button>[span_8](start_span)[span_8](end_span)
-    <button class="cat-btn" data-cat="Spices">Spices & Masala</button>[span_9](start_span)[span_9](end_span)
+    <button class="cat-btn" data-cat="Vegetables">Fresh Vegetables</button>
+    <button class="cat-btn" data-cat="Fruits">Fresh Fruits</button>
+    <button class="cat-btn" data-cat="Dairy">Dairy Products</button>
+    <button class="cat-btn" data-cat="Spices">Spices &amp; Masala</button>
   </div>
 
-  <!-- Product Grid Content -->
   <main class="main-content">
     <div class="heading-bar" id="categoryTitle">All Products</div>
-    <div class="products-grid" id="productGrid">
-      <!-- Injected by JavaScript -->
-    </div>
+    <div class="products-grid" id="productGrid"></div>
   </main>
 
-  <!-- Bottom Floating Cart -->
   <div class="cart-float" id="cartFloat">
     <div>
       <div style="font-size: 13px; font-weight: 800;" id="cartFloatCount">0 items</div>
@@ -570,7 +548,6 @@
     </div>
   </div>
 
-  <!-- Cart Modal Sheet -->
   <div class="modal-overlay" id="cartOverlay"></div>
   <div class="modal-sheet" id="cartSheet">
     <div class="modal-header">
@@ -580,7 +557,6 @@
     
     <div class="modal-list" id="cartEntries"></div>
 
-    <!-- Customer Address & Contact Details inside Cart -->
     <div class="customer-form">
       <h4>Delivery Details</h4>
       <div class="form-group">
@@ -609,7 +585,6 @@
     </div>
   </div>
 
-  <!-- Dedicated Change Address Modal -->
   <div class="modal-overlay" id="addressOverlay"></div>
   <div class="modal-sheet" id="addressSheet">
     <div class="modal-header">
@@ -623,18 +598,18 @@
       </div>
       <div class="form-group">
         <label>Street / Area / Landmark</label>
-        <input type="text" id="modalArea" class="form-input" placeholder="e.g. Near Khandoba Mandir, Sukhsagar Part-2[span_10](start_span)"[span_10](end_span)>
+        <input type="text" id="modalArea" class="form-input" placeholder="e.g. Near Khandoba Mandir, Sukhsagar Part-2">
       </div>
       <div class="form-group">
         <label>Area / Pincode</label>
-        <input type="text" id="modalCity" class="form-input" value="Kondhwa BK, Pune-46[span_11](start_span)"[span_11](end_span)>
+        <input type="text" id="modalCity" class="form-input" value="Kondhwa BK, Pune-46">
       </div>
-      <button class="save-address-btn" id="saveAddressBtn">Save & Confirm Address</button>
+      <button class="save-address-btn" id="saveAddressBtn">Save &amp; Confirm Address</button>
     </div>
   </div>
 
   <script>
-    const products = [
+    var products = [
       { id: 1, name: "Fresh Hybrid Tomato", hindi: "Tamatar", unit: "1 kg", price: 36, mrp: 50, category: "Vegetables", emoji: "🍅" },
       { id: 2, name: "Farm Fresh Potato", hindi: "Aloo", unit: "1 kg", price: 32, mrp: 45, category: "Vegetables", emoji: "🥔" },
       { id: 3, name: "Nashik Red Onion", hindi: "Pyaaz Kanda", unit: "1 kg", price: 28, mrp: 40, category: "Vegetables", emoji: "🧅" },
@@ -651,13 +626,21 @@
       { id: 14, name: "Fresh Garlic Bulb", hindi: "Lehsun", unit: "250 g", price: 60, mrp: 80, category: "Vegetables", emoji: "🧄" }
     ];
 
-    let cart = {};
-    let selectedCat = "All";
+    var cart = {};
+    var selectedCat = "All";
 
-    // Load or initialize address
-    let currentAddress = localStorage.getItem("rasoee_address") || "SN 18, Sukhsagar Part-2, Kondhwa BK, Pune-46";[span_12](start_span)[span_12](end_span)
-    let customerName = localStorage.getItem("rasoee_name") || "";
-    let customerPhone = localStorage.getItem("rasoee_phone") || "";
+    var defaultAddress = "SN 18, Sukhsagar Part-2, Kondhwa BK, Pune-46";
+    var currentAddress = defaultAddress;
+    var customerName = "";
+    var customerPhone = "";
+
+    try {
+      currentAddress = localStorage.getItem("rasoee_address") || defaultAddress;
+      customerName = localStorage.getItem("rasoee_name") || "";
+      customerPhone = localStorage.getItem("rasoee_phone") || "";
+    } catch(e) {
+      console.warn("Storage unavailable");
+    }
 
     function initAddress() {
       document.getElementById("displayHeaderAddress").innerText = currentAddress;
@@ -667,15 +650,16 @@
     }
 
     function render() {
-      const grid = document.getElementById("productGrid");
-      const searchVal = document.getElementById("searchInput").value.trim().toLowerCase();
+      var grid = document.getElementById("productGrid");
+      var searchInput = document.getElementById("searchInput");
+      var searchVal = searchInput ? searchInput.value.trim().toLowerCase() : "";
 
-      const filtered = products.filter(p => {
-        const matchesCategory = selectedCat === "All" || p.category === selectedCat;
-        const matchesSearch = !searchVal || 
-          p.name.toLowerCase().includes(searchVal) || 
-          p.hindi.toLowerCase().includes(searchVal) || 
-          p.category.toLowerCase().includes(searchVal);
+      var filtered = products.filter(function(p) {
+        var matchesCategory = selectedCat === "All" || p.category === selectedCat;
+        var matchesSearch = !searchVal || 
+          p.name.toLowerCase().indexOf(searchVal) !== -1 || 
+          p.hindi.toLowerCase().indexOf(searchVal) !== -1 || 
+          p.category.toLowerCase().indexOf(searchVal) !== -1;
         return matchesCategory && matchesSearch;
       });
 
@@ -684,36 +668,69 @@
         return;
       }
 
-      grid.innerHTML = filtered.map(p => {
-        const qty = cart[p.id] || 0;
-        return `
-          <div class="product-card">
-            <span class="card-eta"><i class="fa-solid fa-clock"></i> 15 MINS</span>
-            <div class="card-emoji-box">${p.emoji}</div>
-            <div class="card-name">${p.name}</div>
-            <div class="card-qty">${p.unit}</div>
-            <div class="card-action-row">
-              <div>
-                <div class="price-text">₹${p.price}</div>
-                <div class="mrp-text">₹${p.mrp}</div>
-              </div>
-              <div>
-                ${qty > 0 ? `
-                  <div class="counter-group">
-                    <button onclick="updateItem(${p.id}, -1)">-</button>
-                    <span>${qty}</span>
-                    <button onclick="updateItem(${p.id}, 1)">+</button>
-                  </div>
-                ` : `
-                  <button class="add-btn" onclick="updateItem(${p.id}, 1)">ADD</button>
-                `}
-              </div>
-            </div>
-          </div>
-        `;
-      }).join("");
+      var html = "";
+      for (var i = 0; i < filtered.length; i++) {
+        var p = filtered[i];
+        var qty = cart[p.id] || 0;
+        html += '<div class="product-card">' +
+          '<span class="card-eta"><i class="fa-solid fa-clock"></i> 15 MINS</span>' +
+          '<div class="card-emoji-box">' + p.emoji + '</div>' +
+          '<div class="card-name">' + p.name + '</div>' +
+          '<div class="card-qty">' + p.unit + '</div>' +
+          '<div class="card-action-row">' +
+            '<div>' +
+              '<div class="price-text">₹' + p.price + '</div>' +
+              '<div class="mrp-text">₹' + p.mrp + '</div>' +
+            '</div>' +
+            '<div>' +
+              (qty > 0 ? 
+                ('<div class="counter-group">' +
+                  '<button onclick="updateItem(' + p.id + ', -1)">-</button>' +
+                  '<span>' + qty + '</span>' +
+                  '<button onclick="updateItem(' + p.id + ', 1)">+</button>' +
+                '</div>') : 
+                ('<button class="add-btn" onclick="updateItem(' + p.id + ', 1)">ADD</button>')
+              ) +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      }
+      grid.innerHTML = html;
     }
 
     function updateItem(id, change) {
-      const cur = cart[id] || 0;
-      const next = cur + 
+      var cur = cart[id] || 0;
+      var next = cur + change;
+      if (next <= 0) {
+        delete cart[id];
+      } else {
+        cart[id] = next;
+      }
+      render();
+      syncCartUI();
+    }
+
+    function syncCartUI() {
+      var count = 0;
+      var total = 0;
+
+      for (var id in cart) {
+        var product = null;
+        for (var j = 0; j < products.length; j++) {
+          if (products[j].id == id) {
+            product = products[j];
+            break;
+          }
+        }
+        if (product) {
+          count += cart[id];
+          total += (product.price * cart[id]);
+        }
+      }
+
+      var bar = document.getElementById("cartFloat");
+      if (count > 0) {
+        bar.classList.add("show");
+        document.getElementById("cartFloatCount").innerText = count + (count > 1 ? " items" : " item") + " | ₹" + total;
+      } else {
+        bar.classList.
