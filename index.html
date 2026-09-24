@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Rasoee Fresh | 15 Mins Delivery</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6fb;
+      color: #1f1f1f;
+      padding-bottom: 110px;
+    }
+
+    /* Top Strip */
+    .top-strip {
+      background: #0c831f;
+      color: #ffffff;
+      padding: 7px 12px;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+    }
+
+    .top-strip a {
+      color: #f7d435;
+      text-decoration: none;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #ffffff;
+      padding: 10px 14px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .brand-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 900;
+      color: #0c831f;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .brand-title span {
+      color: #ea580c;
+    }
+
+    .tagline {
+      font-size: 10px;
+      color: #666;
+      font-weight: 600;
+    }
+
+    .nav-cart-btn {
+      background: #0c831f;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    /* Address Bar */
+    .address-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f8fafc;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      margin-bottom: 8px;
+    }
+
+    .address-info {
+      max-width: 75%;
+      overflow: hidden;
+    }
+
+    .address-label {
+      font-size: 10px;
+      font-weight: 800;
+      color: #64748b;
+      display: block;
+      text-transform: uppercase;
+    }
+
+    .address-text {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f172a;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+
+    .change-btn {
+      color: #0c831f;
+      font-size: 11px;
+      font-weight: 800;
+      border: 1px solid #0c831f;
+      background: #ffffff;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* Search */
+    .search-input {
+      width: 100%;
+      padding: 10px 14px;
+      background: #f1f4f8;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .search-input:focus {
+      background: #ffffff;
+      border-color: #0c831f;
+    }
+
+    /* Categories Bar */
+    .category-scroll {
+      display: flex;
+      overflow-x: auto;
+      background: #ffffff;
+      padding: 10px 14px;
+      gap: 8px;
+      border-bottom: 1px solid #eaeaea;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .category-scroll::-webkit-scrollbar { display: none; }
+
+    .cat-btn {
+      white-space: nowrap;
+      padding: 6px 14px;
+      background: #f4f6fb;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #4b5563;
+      cursor: pointer;
+    }
+
+    .cat-btn.active {
+      background: #0c831f;
+      color: #ffffff;
+      border-color: #0c831f;
+    }
+
+    /* Products Grid */
+    .main-content {
+      padding: 6px 14px;
+    }
+
+    .heading-bar {
+      font-size: 16px;
+      font-weight: 800;
+      margin: 12px 0;
+      color: #111;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .product-card {
+      background: #ffffff;
+      border: 1px solid #e6e9ee;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .card-eta {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .card-emoji-box {
+      width: 100%;
+      height: 95px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0 6px;
+      font-size: 54px;
+      background: #f8fafc;
+      border-radius: 10px;
+      user-select: none;
+    }
+
+    .card-name {
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 2px;
+      min-height: 34px;
+      color: #222;
+    }
+
+    .card-qty {
+      font-size: 11px;
+      color: #777;
+      margin-bottom: 8px;
+    }
+
+    .card-action-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+
+    .price-text {
+      font-size: 14px;
+      font-weight: 800;
+      color: #111;
+    }
+
+    .mrp-text {
+      font-size: 10px;
+      color: #999;
+      text-decoration: line-through;
+    }
+
+    .add-btn {
+      background: #ffffff;
+      border: 1.5px solid #0c831f;
+      color: #0c831f;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .counter-group {
+      display: none;
+      align-items: center;
+      background: #0c831f;
+      color: #ffffff;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .counter-group button {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      padding: 6px 10px;
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .counter-group span {
+      font-size: 13px;
+      font-weight: 800;
+      padding: 0 4px;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    /* Bottom Cart Float Bar */
+    .cart-float {
+      position: fixed;
+      bottom: 12px;
+      left: 14px;
+      right: 14px;
+      background: #0c831f;
+      color: #ffffff;
+      padding: 14px 18px;
+      border-radius: 12px;
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 8px 24px rgba(12, 131, 31, 0.4);
+      z-index: 1000;
+      cursor: pointer;
+    }
+
+    /* Cart Modal */
+    .cart-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      display: none;
+    }
+
+    .cart-window {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: #ffffff;
+      border-radius: 18px 18px 0 0;
+      max-height: 85vh;
+      display: none;
+      flex-direction: column;
+      z-index: 2001;
+    }
+
+    .cart-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .cart-close {
+      font-size: 22px;
+      cursor: pointer;
+      color: #64748b;
+      font-weight: bold;
+    }
+
+    .cart-list {
+      padding: 14px 16px;
+      overflow-y: auto;
+      max-height: 38vh;
+    }
+
+    .cart-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .checkout-form {
+      padding: 12px 16px;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .form-row {
+      margin-bottom: 8px;
+    }
+
+    .form-row label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #475569;
+      margin-bottom: 2px;
+    }
+
+    .form-row input {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .cart-footer {
+      padding: 14px 16px;
+      background: #ffffff;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: #0c831f;
+      color: #ffffff;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      font-size: 15px;
+      font-weight: 800;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Strip -->
+  <div class="top-strip">
+    <div>Rasooee Fresh Club | Wholesale &amp; Retail</div>
+    <div>Call: <a href="tel:9209116500">9209116500</a></div>
+  </div>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="brand-row">
+      <div>
+        <div class="brand-title">Rasoee<span>Fresh</span></div>
+        <div class="tagline">Rasoee se Dil Tak, Pure &amp; Fresh</div>
+      </div>
+      <button class="nav-cart-btn" onclick="openCart()">
+        🛒 Cart (<span id="navCartCount">0</span>)
+      </button>
+    </div>
+
+    <!-- Direct Address Changer -->
+    <div class="address-bar">
+      <div class="address-info" onclick="promptChangeAddress()">
+        <span class="address-label">Delivery Address (Tap to Edit)</span>
+        <span class="address-text" id="displayAddress">SN 18, Sukhsagar Part-2, Kondhwa BK, Pune-46</span>
+      </div>
+      <button class="change-btn" type="button" onclick="promptChangeAddress()">CHANGE</button>
+    </div>
+
+    <!-- Search Input -->
+    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search Tomato, Potato, Milk, Fruits, Spices..." oninput="doSearch()">
+  </header>
+
+  <!-- Categories -->
+  <div class="category-scroll">
+    <button class="cat-btn active" onclick="setCat('All', this)">All Items</button>
+    <button class="cat-btn" onclick="setCat('Vegetables', this)">Fresh Vegetables</button>
+    <button class="cat-btn" onclick="setCat('Fruits', this)">Fresh Fruits</button>
+    <button class="cat-btn" onclick="setCat('Dairy', this)">Dairy Products</button>
+    <button class="cat-btn" onclick="setCat('Spices', this)">Spices &amp; Masala</button>
+  </div>
+
+  <!-- Catalog Section -->
+  <main class="main-content">
+    <div class="heading-bar" id="categoryTitle">All Products</div>
+    <div class="products-grid" id="productGrid">
+
+      <!-- Item 1 -->
+      <div class="product-card" data-cat="Vegetables" data-search="fresh hybrid tomato tamatar">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🍅</div>
+        <div class="card-name">Fresh Hybrid Tomato</div>
+        <div class="card-qty">1 kg</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹36</div><div class="mrp-text">₹50</div></div>
+          <div>
+            <button class="add-btn" id="btn-add-1" onclick="cartUpdate(1, 'Fresh Hybrid Tomato', 36, '1 kg', '🍅', 1)">ADD</button>
+            <div class="counter-group" id="counter-1">
+              <button onclick="cartUpdate(1, 'Fresh Hybrid Tomato', 36, '1 kg', '🍅', -1)">-</button>
+              <span id="qty-val-1">0</span>
+              <button onclick="cartUpdate(1, 'Fresh Hybrid Tomato', 36, '1 kg', '🍅', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="product-card" data-cat="Vegetables" data-search="farm fresh potato aloo">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🥔</div>
+        <div class="card-name">Farm Fresh Potato</div>
+        <div class="card-qty">1 kg</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹32</div><div class="mrp-text">₹45</div></div>
+          <div>
+            <button class="add-btn" id="btn-add-2" onclick="cartUpdate(2, 'Farm Fresh Potato', 32, '1 kg', '🥔', 1)">ADD</button>
+            <div class="counter-group" id="counter-2">
+              <button onclick="cartUpdate(2, 'Farm Fresh Potato', 32, '1 kg', '🥔', -1)">-</button>
+              <span id="qty-val-2">0</span>
+              <button onclick="cartUpdate(2, 'Farm Fresh Potato', 32, '1 kg', '🥔', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="product-card" data-cat="Vegetables" data-search="nashik red onion pyaaz kanda">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🧅</div>
+        <div class="card-name">Nashik Red Onion</div>
+        <div class="card-qty">1 kg</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹28</div><div class="mrp-text">₹40</div></div>
+          <div>
+            <button class="add-btn" id="btn-add-3" onclick="cartUpdate(3, 'Nashik Red Onion', 28, '1 kg', '🧅', 1)">ADD</button>
+            <div class="counter-group" id="counter-3">
+              <button onclick="cartUpdate(3, 'Nashik Red Onion', 28, '1 kg', '🧅', -1)">-</button>
+              <span id="qty-val-3">0</span>
+              <button onclick="cartUpdate(3, 'Nashik Red Onion', 28, '1 kg', '🧅', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="product-card" data-cat="Vegetables" data-search="green capsicum shimla mirch">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🫑</div>
+        <div class="card-name">Green Capsicum</div>
+        <div class="card-qty">500 g</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹45</div><div class="mrp-text">₹60</div></div>
+          <div>
+            <button class="add-btn" id="btn-add-4" onclick="cartUpdate(4, 'Green Capsicum', 45, '500 g', '🫑', 1)">ADD</button>
+            <div class="counter-group" id="counter-4">
+              <button onclick="cartUpdate(4, 'Green Capsicum', 45, '500 g', '🫑', -1)">-</button>
+              <span id="qty-val-4">0</span>
+              <button onclick="cartUpdate(4, 'Green Capsicum', 45, '500 g', '🫑', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="product-card" data-cat="Vegetables" data-search="spicy green chilli hari mirchi">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🌶️</div>
+        <div class="card-name">Spicy Green Chilli</div>
+        <div class="card-qty">200 g</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹20</div><div class="mrp-text">₹30</div></div>
+          <div>
+            <button class="add-btn" id="btn-add-5" onclick="cartUpdate(5, 'Spicy Green Chilli', 20, '200 g', '🌶️', 1)">ADD</button>
+            <div class="counter-group" id="counter-5">
+              <button onclick="cartUpdate(5, 'Spicy Green Chilli', 20, '200 g', '🌶️', -1)">-</button>
+              <span id="qty-val-5">0</span>
+              <button onclick="cartUpdate(5, 'Spicy Green Chilli', 20, '200 g', '🌶️', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="product-card" data-cat="Fruits" data-search="crisp royal apple seb">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🍎</div>
+        <div class="card-name">Crisp Royal Apple</div>
+        <div class="card-qty">4 pcs (500g)</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹110</div><div class="mrp-text">₹140</div></div>
+          <div>
+            <button class="add-btn" id="btn-add-6" onclick="cartUpdate(6, 'Crisp Royal Apple', 110, '4 pcs', '🍎', 1)">ADD</button>
+            <div class="counter-group" id="counter-6">
+              <button onclick="cartUpdate(6, 'Crisp Royal Apple', 110, '4 pcs', '🍎', -1)">-</button>
+              <span id="qty-val-6">0</span>
+              <button onclick="cartUpdate(6, 'Crisp Royal Apple', 110, '4 pcs', '🍎', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 7 -->
+      <div class="product-card" data-cat="Fruits" data-search="fresh sweet banana kela">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🍌</div>
+        <div class="card-name">Fresh Sweet Banana</div>
+        <div class="card-qty">1 kg (5-6 pcs)</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹48</div><div class="mrp-text">₹65</div></div>
+          <div>
+            <button class="add-btn" id="btn-add-7" onclick="cartUpdate(7, 'Fresh Sweet Banana', 48, '1 kg', '🍌', 1)">ADD</button>
+            <div class="counter-group" id="counter-7">
+              <button onclick="cartUpdate(7, 'Fresh Sweet Banana', 48, '1 kg', '🍌', -1)">-</button>
+              <span id="qty-val-7">0</span>
+              <button onclick="cartUpdate(7, 'Fresh Sweet Banana', 48, '1 kg', '🍌', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 8 -->
+      <div class="product-card" data-cat="Fruits" data-search="nagpur sweet orange santra">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🍊</div>
+        <div class="card-name">Nagpur Sweet Orange</div>
+        <div class="card-qty">1 kg</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹79</div><div class="mrp-text">₹100</div></div>
+          <div>
+            <button class="add-btn" id="btn-add-8" onclick="cartUpdate(8, 'Nagpur Sweet Orange', 79, '1 kg', '🍊', 1)">ADD</button>
+            <div class="counter-group" id="counter-8">
+              <button onclick="cartUpdate(8, 'Nagpur Sweet Orange', 79, '1 kg', '🍊', -1)">-</button>
+              <span id="qty-val-8">0</span>
+              <button onclick="cartUpdate(8, 'Nagpur Sweet Orange', 79, '1 kg', '🍊', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 9 -->
+      <div class="product-card" data-cat="Dairy" data-search="fresh cow milk pouch doodh">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🥛</div>
+        <div class="card-name">Fresh Cow Milk</div>
+        <div class="card-qty">500 ml</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹29</div><div class="mrp-text">₹30</div></div>
+          <div>
+            <button class="add-btn" id="btn-add-9" onclick="cartUpdate(9, 'Fresh Cow Milk', 29, '500 ml', '🥛', 1)">ADD</button>
+            <div class="counter-group" id="counter-9">
+              <button onclick="cartUpdate(9, 'Fresh Cow Milk', 29, '500 ml', '🥛', -1)">-</button>
+              <span id="qty-val-9">0</span>
+              <button onclick="cartUpdate(9, 'Fresh Cow Milk', 29, '500 ml', '🥛', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 10 -->
+      <div class="product-card" data-cat="Dairy" data-search="fresh malai paneer">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🧀</div>
+        <div class="card-name">Fresh Malai Paneer</div>
+        <div class="card-qty">200 g</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹88</div><div class="mrp-text">₹105</div></div>
+          <div>
+            <button class="add-btn" id="btn-add-10" onclick="cartUpdate(10, 'Fresh Malai Paneer', 88, '200 g', '🧀', 1)">ADD</button>
+            <div class="counter-group" id="counter-10">
+              <button onclick="cartUpdate(10, 'Fresh Malai Paneer', 88, '200 g', '🧀', -1)">-</button>
+              <span id="qty-val-10">0</span>
+              <button onclick="cartUpdate(10, 'Fresh Malai Paneer', 88, '200 g', '🧀', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 11 -->
+      <div class="product-card" data-cat="Dairy" data-search="pure desi cow ghee">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🧈</div>
+                <div class="card-name">Pure Desi Cow Ghee</div>
+        <div class="card-qty">500 ml</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹340</div><div class="mrp-text">₹380</div></div>
+          <div>
+            <button class="add-btn" id="btn-add-11" onclick="cartUpdate(11, 'Pure Desi Cow Ghee', 340, '500 ml', '🧈', 1)">ADD</button>
+            <div class="counter-group" id="counter-11">
+              <button onclick="cartUpdate(11, 'Pure Desi Cow Ghee', 340, '500 ml', '🧈', -1)">-</button>
+              <span id="qty-val-11">0</span>
+              <button onclick="cartUpdate(11, 'Pure Desi Cow Ghee', 340, '500 ml', '🧈', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 12 -->
+      <div class="product-card" data-cat="Spices" data-search="pure haldi powder turmeric masala">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🧂</div>
+        <div class="card-name">Pure Haldi Powder</div>
+        <div class="card-qty">200 g</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹52</div><div class="mrp-text">₹65</div></div>
+          <div>
+            <button class="add-btn" id="btn-add-12" onclick="cartUpdate(12, 'Pure Haldi Powder', 52, '200 g', '🧂', 1)">ADD</button>
+            <div class="counter-group" id="counter-12">
+              <button onclick="cartUpdate(12, 'Pure Haldi Powder', 52, '200 g', '🧂', -1)">-</button>
+              <span id="qty-val-12">0</span>
+              <button onclick="cartUpdate(12, 'Pure Haldi Powder', 52, '200 g', '🧂', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 13 -->
+      <div class="product-card" data-cat="Spices" data-search="whole cumin seeds jeera masala">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🌿</div>
+        <div class="card-name">Whole Cumin (Jeera)</div>
+        <div class="card-qty">100 g</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹49</div><div class="mrp-text">₹65</div></div>
+          <div>
+            <button class="add-btn" id="btn-add-13" onclick="cartUpdate(13, 'Whole Cumin (Jeera)', 49, '100 g', '🌿', 1)">ADD</button>
+            <div class="counter-group" id="counter-13">
+              <button onclick="cartUpdate(13, 'Whole Cumin (Jeera)', 49, '100 g', '🌿', -1)">-</button>
+              <span id="qty-val-13">0</span>
+              <button onclick="cartUpdate(13, 'Whole Cumin (Jeera)', 49, '100 g', '🌿', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 14 -->
+      <div class="product-card" data-cat="Vegetables" data-search="fresh garlic bulb lehsun">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🧄</div>
+        <div class="card-name">Fresh Garlic (Lehsun)</div>
+        <div class="card-qty">250 g</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹60</div><div class="mrp-text">₹80</div></div>
+          <div>
+            <button class="add-btn" id="btn-add-14" onclick="cartUpdate(14, 'Fresh Garlic (Lehsun)', 60, '250 g', '🧄', 1)">ADD</button>
+            <div class="counter-group" id="counter-14">
+              <button onclick="cartUpdate(14, 'Fresh Garlic (Lehsun)', 60, '250 g', '🧄', -1)">-</button>
+              <span id="qty-val-14">0</span>
+              <button onclick="cartUpdate(14, 'Fresh Garlic (Lehsun)', 60, '250 g', '🧄', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Bottom Floating Bar -->
+  <div class="cart-float" id="bottomCartBar" onclick="openCart()">
+    <div>
+      <div style="font-size: 13px; font-weight: 800;" id="bottomBarText">0 items</div>
+      <div style="font-size: 11px; opacity: 0.9;">Delivery: FREE</div>
+    </div>
+    <div style="font-weight: 800; font-size: 14px;">View Cart →</div>
+  </div>
+
+  <!-- Cart Modal Sheet -->
+  <div class="cart-backdrop" id="cartBackdrop" onclick="closeCart()"></div>
+  <div class="cart-window" id="cartWindow">
+    <div class="cart-header">
+      <span>Shopping Cart</span>
+      <span class="cart-close" onclick="closeCart()">✕</span>
+    </div>
+
+    <div class="cart-list" id="cartItemList"></div>
+
+    <div class="checkout-form">
+      <div class="form-row">
+        <label>Your Name</label>
+        <input type="text" id="custName" placeholder="Enter your name">
+      </div>
+      <div class="form-row">
+        <label>Mobile Number</label>
+        <input type="tel" id="custPhone" placeholder="Enter your 10-digit number">
+      </div>
+      <div class="form-row">
+        <label>Delivery Address</label>
+        <input type="text" id="custAddress" placeholder="Flat, Building, Landmark, Area">
+      </div>
+    </div>
+
+    <div class="cart-footer">
+      <div style="display:flex; justify-content:space-between; font-weight:800; margin-bottom:10px; font-size:15px;">
+        <span>Total Amount</span>
+        <span id="cartTotalText">₹0</span>
+      </div>
+      <button class="checkout-btn" onclick="sendWhatsAppOrder()">
+        <span>Place WhatsApp Order</span>
+        <span id="cartBtnTotal">₹0</span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // State
+    var cart = {};
+    var selectedCat = "All";
+    var deliveryAddress = "SN 18, Sukhsagar Part-2, Kondhwa BK, Pune-46";
+
+    // Load saved address
+    try {
+      var saved = localStorage.getItem("rasoee_user_addr");
+      if (saved && saved.trim().length > 3) {
+        deliveryAddress = saved.trim();
+      }
+    } catch(e) {}
+
+    document.getElementById("displayAddress").innerText = deliveryAddress;
+    document.getElementById("custAddress").value = deliveryAddress;
+
+    // Direct Browser Prompt for changing address (100% works on all phones)
+    function promptChangeAddress() {
+      var newAddr = window.prompt("Enter your Delivery Address (Flat/House No, Area, Landmark):", deliveryAddress);
+      if (newAddr !== null && newAddr.trim().length > 2) {
+        deliveryAddress = newAddr.trim();
+        document.getElementById("displayAddress").innerText = deliveryAddress;
+        document.getElementById("custAddress").value = deliveryAddress;
+        try {
+          localStorage.setItem("rasoee_user_addr", deliveryAddress);
+        } catch(e) {}
+      }
+    }
+
+    // Add / Remove from Cart
+    function cartUpdate(id, name, price, unit, emoji, delta) {
+      if (!cart[id]) {
+        cart[id] = { id: id, name: name, price: price, unit: unit, emoji: emoji, qty: 0 };
+      }
+      cart[id].qty += delta;
+
+      var addBtn = document.getElementById("btn-add-" + id);
+      var counter = document.getElementById("counter-" + id);
+      var qtySpan = document.getElementById("qty-val-" + id);
+
+      if (cart[id].qty <= 0) {
+        delete cart[id];
+        if (addBtn && counter) {
+          addBtn.style.display = "block";
+          counter.style.display = "none";
+        }
+      } else {
+        if (addBtn && counter && qtySpan) {
+          addBtn.style.display = "none";
+          counter.style.display = "flex";
+          qtySpan.innerText = cart[id].qty;
+        }
+      }
+
+      refreshCart();
+    }
+
+    // Recalculate and update cart displays
+    function refreshCart() {
+      var totalItems = 0;
+      var totalPrice = 0;
+
+      for (var id in cart) {
+        totalItems += cart[id].qty;
+        totalPrice += (cart[id].price * cart[id].qty);
+      }
+
+      // Update top header cart badge
+      document.getElementById("navCartCount").innerText = totalItems;
+
+      // Update bottom floating bar
+      var bottomBar = document.getElementById("bottomCartBar");
+      if (totalItems > 0) {
+        bottomBar.style.display = "flex";
+        document.getElementById("bottomBarText").innerText = totalItems + (totalItems > 1 ? " items" : " item") + " | ₹" + totalPrice;
+      } else {
+        bottomBar.style.display = "none";
+        closeCart();
+      }
+
+      // Update modal prices
+      document.getElementById("cartTotalText").innerText = "₹" + totalPrice;
+      document.getElementById("cartBtnTotal").innerText = "₹" + totalPrice;
+
+      // Build cart list HTML
+      var list = document.getElementById("cartItemList");
+      var html = "";
+      for (var k in cart) {
+        var itm = cart[k];
+        html += '<div class="cart-item-row">' +
+          '<div>' +
+            '<div style="font-weight:700; font-size:13px;">' + itm.emoji + ' ' + itm.name + '</div>' +
+            '<div style="color:#64748b; font-size:11px;">₹' + itm.price + ' × ' + itm.qty + ' (' + itm.unit + ')</div>' +
+          '</div>' +
+          '<div style="font-weight:800; font-size:13px;">₹' + (itm.price * itm.qty) + '</div>' +
+        '</div>';
+      }
+      list.innerHTML = html;
+    }
+
+    // Open/Close Cart
+    function openCart() {
+      document.getElementById("cartBackdrop").style.display = "block";
+      document.getElementById("cartWindow").style.display = "flex";
+    }
+
+    function closeCart() {
+      document.getElementById("cartBackdrop").style.display = "none";
+      document.getElementById("cartWindow").style.display = "none";
+    }
+
+    // Search filter
+    function doSearch() {
+      var query = document.getElementById("searchInput").value.trim().toLowerCase();
+      var cards = document.querySelectorAll(".product-card");
+
+      for (var i = 0; i < cards.length; i++) {
+        var card = cards[i];
+        var cat = card.getAttribute("data-cat");
+        var searchAttr = card.getAttribute("data-search");
+
+        var matchCategory = (selectedCat === "All" || cat === selectedCat);
+        var matchQuery = (query === "" || searchAttr.indexOf(query) !== -1);
+
+        if (matchCategory && matchQuery) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      }
+    }
+
+    // Category button click
+    function setCat(cat, btn) {
+      selectedCat = cat;
+      document.getElementById("categoryTitle").innerText = cat === "All" ? "All Products" : cat;
+
+      var buttons = document.querySelectorAll(".cat-btn");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+      btn.classList.add("active");
+
+      doSearch();
+    }
+
+    // WhatsApp Checkout
+    function sendWhatsAppOrder() {
+      var name = document.getElementById("custName").value.trim() || "Customer";
+      var phone = document.getElementById("custPhone").value.trim() || "Not provided";
+      var finalAddress = document.getElementById("custAddress").value.trim() || deliveryAddress;
+
+      var total = 0;
+      var msg = "*New Order - Rasoee Fresh*%0A%0A";
+      msg += "*Customer Details:*%0A";
+      msg += "👤 Name: " + name + "%0A";
+      msg += "📞 Phone: " + phone + "%0A";
+      msg += "📍 Delivery Address: " + finalAddress + "%0A%0A";
+      msg += "*Items Ordered:*%0A";
+
+      for (var id in cart) {
+        var itm = cart[id];
+        var sub = itm.price * itm.qty;
+        total += sub;
+        msg += "• " + itm.emoji + " " + itm.name + " (" + itm.unit + ") x " + itm.qty + " = ₹" + sub + "%0A";
+      }
+
+      msg += "%0A*Total Order Amount: ₹" + total + "*%0A";
+      msg += "Please confirm my order and share expected arrival time!";
+
+      window.open("https://wa.me/919209116500?text=" + msg, "_blank");
+    }
+  </script>
+</body>
+</html>
+     
