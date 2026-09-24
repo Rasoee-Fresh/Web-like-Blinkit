@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Rasoee Fresh | 15 Mins Delivery</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     * {
       box-sizing: border-box;
@@ -16,9 +15,10 @@
     body {
       background-color: #f4f6fb;
       color: #1f1f1f;
-      padding-bottom: 95px;
+      padding-bottom: 90px;
     }
 
+    /* Top Strip */
     .top-strip {
       background: #0c831f;
       color: #ffffff;
@@ -35,6 +35,7 @@
       text-decoration: none;
     }
 
+    /* Navbar */
     .navbar {
       background: #ffffff;
       padding: 10px 14px;
@@ -70,103 +71,71 @@
     }
 
     .time-badge {
-      background: #f8f9fa;
-      border: 1px solid #e2e8f0;
+      background: #fef9c3;
+      color: #854d0e;
+      border: 1px solid #fef08a;
       padding: 4px 8px;
       border-radius: 20px;
       font-size: 11px;
       font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 5px;
     }
 
-    .time-badge i {
-      color: #f59e0b;
-    }
-
-    .address-bar-click {
+    /* Address Bar */
+    .address-box {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #fff;
+      background: #f8fafc;
       padding: 8px 10px;
       border-radius: 8px;
-      border: 1px solid #e8ecf2;
+      border: 1px solid #e2e8f0;
       margin-bottom: 8px;
       cursor: pointer;
     }
 
-    .address-bar-click:active {
-      background: #f0fdf4;
-    }
-
     .address-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      overflow: hidden;
-    }
-
-    .address-left i {
-      color: #0c831f;
-      font-size: 14px;
-    }
-
-    .address-text-box {
       display: flex;
       flex-direction: column;
       overflow: hidden;
+      max-width: 75%;
     }
 
-    .address-title-text {
-      font-size: 11px;
+    .address-label {
+      font-size: 10px;
       font-weight: 800;
-      color: #111;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .address-sub-text {
-      font-size: 11px;
-      color: #666;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 230px;
-    }
-
-    .change-btn-text {
-      color: #0c831f;
-      font-size: 11px;
-      font-weight: 800;
+      color: #64748b;
       text-transform: uppercase;
     }
 
-    .search-wrap {
-      position: relative;
-      width: 100%;
+    .address-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: #0f172a;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .search-wrap i {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #718096;
-      font-size: 14px;
+    .change-btn {
+      color: #0c831f;
+      font-size: 11px;
+      font-weight: 800;
+      border: 1px solid #0c831f;
+      background: #ffffff;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
+    /* Search */
     .search-input {
       width: 100%;
-      padding: 10px 14px 10px 38px;
+      padding: 10px 14px;
       background: #f1f4f8;
-      border: 1px solid transparent;
+      border: 1px solid #e2e8f0;
       border-radius: 10px;
       font-size: 14px;
       outline: none;
-      transition: all 0.2s;
     }
 
     .search-input:focus {
@@ -174,6 +143,7 @@
       border-color: #0c831f;
     }
 
+    /* Categories Bar */
     .category-scroll {
       display: flex;
       overflow-x: auto;
@@ -182,11 +152,9 @@
       gap: 8px;
       border-bottom: 1px solid #eaeaea;
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
-
-    .category-scroll::-webkit-scrollbar {
-      display: none;
-    }
+    .category-scroll::-webkit-scrollbar { display: none; }
 
     .cat-btn {
       white-space: nowrap;
@@ -206,6 +174,7 @@
       border-color: #0c831f;
     }
 
+    /* Main Area */
     .main-content {
       padding: 6px 14px;
     }
@@ -217,6 +186,7 @@
       color: #111;
     }
 
+    /* Products Grid */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -310,7 +280,7 @@
     }
 
     .counter-group {
-      display: flex;
+      display: none;
       align-items: center;
       background: #0c831f;
       color: #ffffff;
@@ -336,6 +306,7 @@
       text-align: center;
     }
 
+    /* Bottom Floating Cart Bar */
     .cart-float {
       position: fixed;
       bottom: 12px;
@@ -353,10 +324,7 @@
       cursor: pointer;
     }
 
-    .cart-float.show {
-      display: flex;
-    }
-
+    /* Modal */
     .modal-overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -371,15 +339,9 @@
       background: #ffffff;
       border-radius: 16px 16px 0 0;
       max-height: 85vh;
-      display: flex;
+      display: none;
       flex-direction: column;
-      transform: translateY(100%);
-      transition: transform 0.25s ease-out;
       z-index: 1002;
-    }
-
-    .modal-sheet.open {
-      transform: translateY(0);
     }
 
     .modal-header {
@@ -392,10 +354,17 @@
       font-size: 15px;
     }
 
-    .modal-list {
+    .modal-close {
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #64748b;
+    }
+
+    .modal-body {
       padding: 14px 16px;
       overflow-y: auto;
-      max-height: 35vh;
+      max-height: 40vh;
     }
 
     .cart-entry {
@@ -411,14 +380,6 @@
       padding: 12px 16px;
       background: #f8fafc;
       border-top: 1px solid #eef2f6;
-    }
-
-    .customer-form h4 {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: #64748b;
-      margin-bottom: 8px;
     }
 
     .form-group {
@@ -443,10 +404,6 @@
       background: #fff;
     }
 
-    .form-input:focus {
-      border-color: #0c831f;
-    }
-
     .modal-footer {
       padding: 14px 16px;
       background: #fafafa;
@@ -468,11 +425,6 @@
       cursor: pointer;
     }
 
-    .address-modal-body {
-      padding: 16px;
-      overflow-y: auto;
-    }
-
     .save-address-btn {
       width: 100%;
       background: #0c831f;
@@ -488,249 +440,232 @@
 </head>
 <body>
 
+  <!-- Top Strip -->
   <div class="top-strip">
     <div>Rasooee Fresh Club | Wholesale &amp; Retail</div>
     <div>Call: <a href="tel:9209116500">9209116500</a></div>
   </div>
 
+  <!-- Header -->
   <header class="navbar">
     <div class="brand-row">
       <div>
         <div class="brand-title">Rasoee<span>Fresh</span></div>
         <div class="tagline">Rasoee se Dil Tak, Pure &amp; Fresh</div>
       </div>
-      <div class="time-badge">
-        <i class="fa-solid fa-bolt"></i> 15 MINS
-      </div>
+      <div class="time-badge">⚡ 15 MINS</div>
     </div>
 
-    <div class="address-bar-click" id="triggerAddressModal">
+    <!-- Address Selector Bar -->
+    <div class="address-box" onclick="openAddressModal()">
       <div class="address-left">
-        <i class="fa-solid fa-location-dot"></i>
-        <div class="address-text-box">
-          <div class="address-title-text">
-            <span>Delivering to</span> <i class="fa-solid fa-angle-down" style="font-size: 10px;"></i>
-          </div>
-          <div class="address-sub-text" id="displayHeaderAddress">
-            SN 18, Sukhsagar Part-2, Kondhwa BK, Pune-46
+        <span class="address-label">Delivery Address</span>
+        <span class="address-text" id="topAddressDisplay">SN 18, Sukhsagar Part-2, Kondhwa BK, Pune-46</span>
+      </div>
+      <button class="change-btn" type="button">CHANGE</button>
+    </div>
+
+    <!-- Search Input -->
+    <input type="text" id="searchBox" class="search-input" placeholder="🔍 Search Tomato, Potato, Milk, Fruits, Spices..." onkeyup="filterItems()">
+  </header>
+
+  <!-- Categories -->
+  <div class="category-scroll">
+    <button class="cat-btn active" onclick="selectCategory('All', this)">All Items</button>
+    <button class="cat-btn" onclick="selectCategory('Vegetables', this)">Fresh Vegetables</button>
+    <button class="cat-btn" onclick="selectCategory('Fruits', this)">Fresh Fruits</button>
+    <button class="cat-btn" onclick="selectCategory('Dairy', this)">Dairy Products</button>
+    <button class="cat-btn" onclick="selectCategory('Spices', this)">Spices &amp; Masala</button>
+  </div>
+
+  <!-- Main Grid with Direct Native HTML (Guaranteed to show) -->
+  <main class="main-content">
+    <div class="heading-bar" id="categoryTitle">All Products</div>
+    <div class="products-grid" id="grid">
+
+      <!-- Item 1 -->
+      <div class="product-card" data-cat="Vegetables" data-search="fresh hybrid tomato tamatar vegetables">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🍅</div>
+        <div class="card-name">Fresh Hybrid Tomato</div>
+        <div class="card-qty">1 kg</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹36</div><div class="mrp-text">₹50</div></div>
+          <div>
+            <button class="add-btn" id="add-btn-1" onclick="changeQty(1, 'Fresh Hybrid Tomato', 36, '1 kg', '🍅', 1)">ADD</button>
+            <div class="counter-group" id="counter-1">
+              <button onclick="changeQty(1, 'Fresh Hybrid Tomato', 36, '1 kg', '🍅', -1)">-</button>
+              <span id="qty-1">0</span>
+              <button onclick="changeQty(1, 'Fresh Hybrid Tomato', 36, '1 kg', '🍅', 1)">+</button>
+            </div>
           </div>
         </div>
       </div>
-      <div class="change-btn-text">CHANGE</div>
-    </div>
 
-    <div class="search-wrap">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" id="searchInput" class="search-input" placeholder='Search "Tomato", "Potato", "Milk", "Chilli"...'>
-    </div>
-  </header>
-
-  <div class="category-scroll">
-    <button class="cat-btn active" data-cat="All">All Items</button>
-    <button class="cat-btn" data-cat="Vegetables">Fresh Vegetables</button>
-    <button class="cat-btn" data-cat="Fruits">Fresh Fruits</button>
-    <button class="cat-btn" data-cat="Dairy">Dairy Products</button>
-    <button class="cat-btn" data-cat="Spices">Spices &amp; Masala</button>
-  </div>
-
-  <main class="main-content">
-    <div class="heading-bar" id="categoryTitle">All Products</div>
-    <div class="products-grid" id="productGrid"></div>
-  </main>
-
-  <div class="cart-float" id="cartFloat">
-    <div>
-      <div style="font-size: 13px; font-weight: 800;" id="cartFloatCount">0 items</div>
-      <div style="font-size: 11px; opacity: 0.9;">Delivery: FREE</div>
-    </div>
-    <div style="font-weight: 800; font-size: 14px;">
-      View Cart <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="cartOverlay"></div>
-  <div class="modal-sheet" id="cartSheet">
-    <div class="modal-header">
-      <span>Order Summary</span>
-      <i class="fa-solid fa-xmark" id="closeCart" style="cursor: pointer; font-size: 18px;"></i>
-    </div>
-    
-    <div class="modal-list" id="cartEntries"></div>
-
-    <div class="customer-form">
-      <h4>Delivery Details</h4>
-      <div class="form-group">
-        <label>Your Name</label>
-        <input type="text" id="custName" class="form-input" placeholder="e.g. Rahul Sharma">
+      <!-- Item 2 -->
+      <div class="product-card" data-cat="Vegetables" data-search="farm fresh potato aloo vegetables">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🥔</div>
+        <div class="card-name">Farm Fresh Potato</div>
+        <div class="card-qty">1 kg</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹32</div><div class="mrp-text">₹45</div></div>
+          <div>
+            <button class="add-btn" id="add-btn-2" onclick="changeQty(2, 'Farm Fresh Potato', 32, '1 kg', '🥔', 1)">ADD</button>
+            <div class="counter-group" id="counter-2">
+              <button onclick="changeQty(2, 'Farm Fresh Potato', 32, '1 kg', '🥔', -1)">-</button>
+              <span id="qty-2">0</span>
+              <button onclick="changeQty(2, 'Farm Fresh Potato', 32, '1 kg', '🥔', 1)">+</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Phone Number</label>
-        <input type="tel" id="custPhone" class="form-input" placeholder="e.g. 9876543210">
+
+      <!-- Item 3 -->
+      <div class="product-card" data-cat="Vegetables" data-search="nashik red onion pyaaz kanda vegetables">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🧅</div>
+        <div class="card-name">Nashik Red Onion</div>
+        <div class="card-qty">1 kg</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹28</div><div class="mrp-text">₹40</div></div>
+          <div>
+            <button class="add-btn" id="add-btn-3" onclick="changeQty(3, 'Nashik Red Onion', 28, '1 kg', '🧅', 1)">ADD</button>
+            <div class="counter-group" id="counter-3">
+              <button onclick="changeQty(3, 'Nashik Red Onion', 28, '1 kg', '🧅', -1)">-</button>
+              <span id="qty-3">0</span>
+              <button onclick="changeQty(3, 'Nashik Red Onion', 28, '1 kg', '🧅', 1)">+</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Delivery Address</label>
-        <input type="text" id="custAddress" class="form-input" placeholder="Flat No, Building, Area">
+
+      <!-- Item 4 -->
+      <div class="product-card" data-cat="Vegetables" data-search="green bell capsicum shimla mirch vegetables">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🫑</div>
+        <div class="card-name">Green Capsicum</div>
+        <div class="card-qty">500 g</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹45</div><div class="mrp-text">₹60</div></div>
+          <div>
+            <button class="add-btn" id="add-btn-4" onclick="changeQty(4, 'Green Capsicum', 45, '500 g', '🫑', 1)">ADD</button>
+            <div class="counter-group" id="counter-4">
+              <button onclick="changeQty(4, 'Green Capsicum', 45, '500 g', '🫑', -1)">-</button>
+              <span id="qty-4">0</span>
+              <button onclick="changeQty(4, 'Green Capsicum', 45, '500 g', '🫑', 1)">+</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="modal-footer">
-      <div style="display: flex; justify-content: space-between; font-weight: 800; margin-bottom: 12px; font-size: 15px;">
-        <span>Grand Total</span>
-        <span id="grandTotal">₹0</span>
+      <!-- Item 5 -->
+      <div class="product-card" data-cat="Vegetables" data-search="spicy green chilli hari mirchi vegetables">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🌶️</div>
+        <div class="card-name">Spicy Green Chilli</div>
+        <div class="card-qty">200 g</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹20</div><div class="mrp-text">₹30</div></div>
+          <div>
+            <button class="add-btn" id="add-btn-5" onclick="changeQty(5, 'Spicy Green Chilli', 20, '200 g', '🌶️', 1)">ADD</button>
+            <div class="counter-group" id="counter-5">
+              <button onclick="changeQty(5, 'Spicy Green Chilli', 20, '200 g', '🌶️', -1)">-</button>
+              <span id="qty-5">0</span>
+              <button onclick="changeQty(5, 'Spicy Green Chilli', 20, '200 g', '🌶️', 1)">+</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <button class="whatsapp-btn" id="sendWhatsApp">
-        <span><i class="fa-brands fa-whatsapp"></i> Place Order on WhatsApp</span>
-        <span id="btnTotal">₹0</span>
-      </button>
-    </div>
-  </div>
 
-  <div class="modal-overlay" id="addressOverlay"></div>
-  <div class="modal-sheet" id="addressSheet">
-    <div class="modal-header">
-      <span>Change Delivery Location</span>
-      <i class="fa-solid fa-xmark" id="closeAddressModal" style="cursor: pointer; font-size: 18px;"></i>
-    </div>
-    <div class="address-modal-body">
-      <div class="form-group">
-        <label>House / Flat / Building No.</label>
-        <input type="text" id="modalFlat" class="form-input" placeholder="e.g. Flat 402, Sai Residency">
+      <!-- Item 6 -->
+      <div class="product-card" data-cat="Fruits" data-search="crisp royal apple seb fruits">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🍎</div>
+        <div class="card-name">Crisp Royal Apple</div>
+        <div class="card-qty">4 pcs (500g)</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹110</div><div class="mrp-text">₹140</div></div>
+          <div>
+            <button class="add-btn" id="add-btn-6" onclick="changeQty(6, 'Crisp Royal Apple', 110, '4 pcs', '🍎', 1)">ADD</button>
+            <div class="counter-group" id="counter-6">
+              <button onclick="changeQty(6, 'Crisp Royal Apple', 110, '4 pcs', '🍎', -1)">-</button>
+              <span id="qty-6">0</span>
+              <button onclick="changeQty(6, 'Crisp Royal Apple', 110, '4 pcs', '🍎', 1)">+</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Street / Area / Landmark</label>
-        <input type="text" id="modalArea" class="form-input" placeholder="e.g. Near Khandoba Mandir, Sukhsagar Part-2">
+
+      <!-- Item 7 -->
+      <div class="product-card" data-cat="Fruits" data-search="fresh sweet banana kela fruits">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🍌</div>
+        <div class="card-name">Fresh Sweet Banana</div>
+        <div class="card-qty">1 kg (5-6 pcs)</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹48</div><div class="mrp-text">₹65</div></div>
+          <div>
+            <button class="add-btn" id="add-btn-7" onclick="changeQty(7, 'Fresh Sweet Banana', 48, '1 kg', '🍌', 1)">ADD</button>
+            <div class="counter-group" id="counter-7">
+              <button onclick="changeQty(7, 'Fresh Sweet Banana', 48, '1 kg', '🍌', -1)">-</button>
+              <span id="qty-7">0</span>
+              <button onclick="changeQty(7, 'Fresh Sweet Banana', 48, '1 kg', '🍌', 1)">+</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Area / Pincode</label>
-        <input type="text" id="modalCity" class="form-input" value="Kondhwa BK, Pune-46">
+
+      <!-- Item 8 -->
+      <div class="product-card" data-cat="Fruits" data-search="nagpur sweet orange santra fruits">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🍊</div>
+        <div class="card-name">Nagpur Sweet Orange</div>
+        <div class="card-qty">1 kg</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹79</div><div class="mrp-text">₹100</div></div>
+          <div>
+            <button class="add-btn" id="add-btn-8" onclick="changeQty(8, 'Nagpur Sweet Orange', 79, '1 kg', '🍊', 1)">ADD</button>
+            <div class="counter-group" id="counter-8">
+              <button onclick="changeQty(8, 'Nagpur Sweet Orange', 79, '1 kg', '🍊', -1)">-</button>
+              <span id="qty-8">0</span>
+              <button onclick="changeQty(8, 'Nagpur Sweet Orange', 79, '1 kg', '🍊', 1)">+</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <button class="save-address-btn" id="saveAddressBtn">Save &amp; Confirm Address</button>
-    </div>
-  </div>
 
-  <script>
-    var products = [
-      { id: 1, name: "Fresh Hybrid Tomato", hindi: "Tamatar", unit: "1 kg", price: 36, mrp: 50, category: "Vegetables", emoji: "🍅" },
-      { id: 2, name: "Farm Fresh Potato", hindi: "Aloo", unit: "1 kg", price: 32, mrp: 45, category: "Vegetables", emoji: "🥔" },
-      { id: 3, name: "Nashik Red Onion", hindi: "Pyaaz Kanda", unit: "1 kg", price: 28, mrp: 40, category: "Vegetables", emoji: "🧅" },
-      { id: 4, name: "Green Bell Capsicum", hindi: "Shimla Mirch", unit: "500 g", price: 45, mrp: 60, category: "Vegetables", emoji: "🫑" },
-      { id: 5, name: "Spicy Green Chilli", hindi: "Hari Mirchi", unit: "200 g", price: 20, mrp: 30, category: "Vegetables", emoji: "🌶️" },
-      { id: 6, name: "Crisp Royal Apple", hindi: "Seb", unit: "4 pcs (500g)", price: 110, mrp: 140, category: "Fruits", emoji: "🍎" },
-      { id: 7, name: "Fresh Sweet Banana", hindi: "Kela", unit: "1 kg (5-6 pcs)", price: 48, mrp: 65, category: "Fruits", emoji: "🍌" },
-      { id: 8, name: "Nagpur Sweet Orange", hindi: "Santra", unit: "1 kg", price: 79, mrp: 100, category: "Fruits", emoji: "🍊" },
-      { id: 9, name: "Fresh Cow Milk Pouch", hindi: "Doodh", unit: "500 ml", price: 29, mrp: 30, category: "Dairy", emoji: "🥛" },
-      { id: 10, name: "Fresh Malai Paneer", hindi: "Paneer", unit: "200 g", price: 88, mrp: 105, category: "Dairy", emoji: "🧀" },
-      { id: 11, name: "Pure Desi Cow Ghee", hindi: "Ghee", unit: "500 ml", price: 340, mrp: 380, category: "Dairy", emoji: "🧈" },
-      { id: 12, name: "Pure Haldi Powder", hindi: "Turmeric", unit: "200 g", price: 52, mrp: 65, category: "Spices", emoji: "🧂" },
-      { id: 13, name: "Whole Cumin Seeds", hindi: "Jeera", unit: "100 g", price: 49, mrp: 65, category: "Spices", emoji: "🌿" },
-      { id: 14, name: "Fresh Garlic Bulb", hindi: "Lehsun", unit: "250 g", price: 60, mrp: 80, category: "Vegetables", emoji: "🧄" }
-    ];
+      <!-- Item 9 -->
+      <div class="product-card" data-cat="Dairy" data-search="fresh cow milk pouch doodh dairy">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🥛</div>
+        <div class="card-name">Fresh Cow Milk</div>
+        <div class="card-qty">500 ml</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹29</div><div class="mrp-text">₹30</div></div>
+          <div>
+            <button class="add-btn" id="add-btn-9" onclick="changeQty(9, 'Fresh Cow Milk', 29, '500 ml', '🥛', 1)">ADD</button>
+            <div class="counter-group" id="counter-9">
+              <button onclick="changeQty(9, 'Fresh Cow Milk', 29, '500 ml', '🥛', -1)">-</button>
+              <span id="qty-9">0</span>
+              <button onclick="changeQty(9, 'Fresh Cow Milk', 29, '500 ml', '🥛', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    var cart = {};
-    var selectedCat = "All";
-
-    var defaultAddress = "SN 18, Sukhsagar Part-2, Kondhwa BK, Pune-46";
-    var currentAddress = defaultAddress;
-    var customerName = "";
-    var customerPhone = "";
-
-    try {
-      currentAddress = localStorage.getItem("rasoee_address") || defaultAddress;
-      customerName = localStorage.getItem("rasoee_name") || "";
-      customerPhone = localStorage.getItem("rasoee_phone") || "";
-    } catch(e) {
-      console.warn("Storage unavailable");
-    }
-
-    function initAddress() {
-      document.getElementById("displayHeaderAddress").innerText = currentAddress;
-      document.getElementById("custAddress").value = currentAddress;
-      document.getElementById("custName").value = customerName;
-      document.getElementById("custPhone").value = customerPhone;
-    }
-
-    function render() {
-      var grid = document.getElementById("productGrid");
-      var searchInput = document.getElementById("searchInput");
-      var searchVal = searchInput ? searchInput.value.trim().toLowerCase() : "";
-
-      var filtered = products.filter(function(p) {
-        var matchesCategory = selectedCat === "All" || p.category === selectedCat;
-        var matchesSearch = !searchVal || 
-          p.name.toLowerCase().indexOf(searchVal) !== -1 || 
-          p.hindi.toLowerCase().indexOf(searchVal) !== -1 || 
-          p.category.toLowerCase().indexOf(searchVal) !== -1;
-        return matchesCategory && matchesSearch;
-      });
-
-      if (filtered.length === 0) {
-        grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #888;">No items match your search.</div>';
-        return;
-      }
-
-      var html = "";
-      for (var i = 0; i < filtered.length; i++) {
-        var p = filtered[i];
-        var qty = cart[p.id] || 0;
-        html += '<div class="product-card">' +
-          '<span class="card-eta"><i class="fa-solid fa-clock"></i> 15 MINS</span>' +
-          '<div class="card-emoji-box">' + p.emoji + '</div>' +
-          '<div class="card-name">' + p.name + '</div>' +
-          '<div class="card-qty">' + p.unit + '</div>' +
-          '<div class="card-action-row">' +
-            '<div>' +
-              '<div class="price-text">₹' + p.price + '</div>' +
-              '<div class="mrp-text">₹' + p.mrp + '</div>' +
-            '</div>' +
-            '<div>' +
-              (qty > 0 ? 
-                ('<div class="counter-group">' +
-                  '<button onclick="updateItem(' + p.id + ', -1)">-</button>' +
-                  '<span>' + qty + '</span>' +
-                  '<button onclick="updateItem(' + p.id + ', 1)">+</button>' +
-                '</div>') : 
-                ('<button class="add-btn" onclick="updateItem(' + p.id + ', 1)">ADD</button>')
-              ) +
-            '</div>' +
-          '</div>' +
-        '</div>';
-      }
-      grid.innerHTML = html;
-    }
-
-    function updateItem(id, change) {
-      var cur = cart[id] || 0;
-      var next = cur + change;
-      if (next <= 0) {
-        delete cart[id];
-      } else {
-        cart[id] = next;
-      }
-      render();
-      syncCartUI();
-    }
-
-    function syncCartUI() {
-      var count = 0;
-      var total = 0;
-
-      for (var id in cart) {
-        var product = null;
-        for (var j = 0; j < products.length; j++) {
-          if (products[j].id == id) {
-            product = products[j];
-            break;
-          }
-        }
-        if (product) {
-          count += cart[id];
-          total += (product.price * cart[id]);
-        }
-      }
-
-      var bar = document.getElementById("cartFloat");
-      if (count > 0) {
-        bar.classList.add("show");
-        document.getElementById("cartFloatCount").innerText = count + (count > 1 ? " items" : " item") + " | ₹" + total;
-      } else {
-        bar.classList.
+      <!-- Item 10 -->
+      <div class="product-card" data-cat="Dairy" data-search="fresh malai paneer dairy">
+        <span class="card-eta">⚡ 15 MINS</span>
+        <div class="card-emoji-box">🧀</div>
+        <div class="card-name">Fresh Malai Paneer</div>
+        <div class="card-qty">200 g</div>
+        <div class="card-action-row">
+          <div><div class="price-text">₹88</div><div class="mrp-text">₹105</div></div>
+          <div>
+            <button class="add-btn" id="add-btn-10" onclick="changeQty(10, 'Fresh Malai Paneer', 88, '200 g', '🧀', 1)">ADD</button>
+            <div class="counter-group" id="counter-10">
+              <button onclick="changeQty(10, 'Fresh Malai Paneer', 88, '200 g', '🧀', -1)">-</button>
+              <span id="qty-10">0</span>
+              <button onclick="changeQty(10, 'Fresh Malai Paneer', 88, '200 g', '🧀', 1)">+</button>
+       
