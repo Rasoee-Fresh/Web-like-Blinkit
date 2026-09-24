@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rasoee Fresh | Instant 15 Mins Delivery</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --blinkit-yellow: #f7d435;
+      --blinkit-green: #0c831f;
+      --blinkit-green-dark: #085e16;
+      --blinkit-green-light: #f3f9f4;
+      --text-dark: #1f1f1f;
+      --text-muted: #666666;
+      --bg-gray: #f4f6fb;
+      --card-bg: #ffffff;
+      --border-color: #e8e8e8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-gray);
+      color: var(--text-dark);
+      padding-bottom: 90px;
+    }
+
+    /* Top Blinkit Navbar */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .header-content {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+    }
+
+    .logo-box h1 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--blinkit-green);
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .logo-box span {
+      color: #ea580c;
+    }
+
+    .tagline-badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .delivery-location {
+      border-left: 1px solid var(--border-color);
+      padding-left: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .delivery-time {
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .delivery-time span {
+      background: var(--blinkit-yellow);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .delivery-address {
+      font-size: 12px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 220px;
+    }
+
+    /* Search Bar */
+    .search-container {
+      flex: 1;
+      max-width: 580px;
+      position: relative;
+    }
+
+    .search-container i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888888;
+      font-size: 15px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 14px 12px 42px;
+      background: #f8f9fa;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      outline: none;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--blinkit-green);
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(12, 131, 31, 0.1);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cart-btn {
+      background: var(--blinkit-green);
+      color: #ffffff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.2s;
+    }
+
+    .cart-btn:hover {
+      background: var(--blinkit-green-dark);
+    }
+
+    /* Announcement Banner */
+    .announcement {
+      background: linear-gradient(90deg, #0c831f, #1e3a1e);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 16px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .announcement span {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-size: 11px;
+    }
+
+    /* Main Container Layout */
+    .main-layout {
+      max-width: 1240px;
+      margin: 20px auto;
+      padding: 0 16px;
+      display: flex;
+      gap: 24px;
+    }
+
+    /* Category Sidebar */
+    .category-sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      align-self: flex-start;
+      position: sticky;
+      top: 90px;
+    }
+
+    .category-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #999;
+      letter-spacing: 0.8px;
+      padding: 8px 12px;
+    }
+
+    .category-list {
+      list-style: none;
+    }
+
+    .category-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      margin-bottom: 4px;
+      transition: all 0.2s;
+    }
+
+    .category-item:hover, .category-item.active {
+      background: var(--blinkit-green-light);
+      color: var(--blinkit-green);
+    }
+
+    .category-item i {
+      font-size: 16px;
+      width: 20px;
+    }
+
+    /* Product Grid Section */
+    .products-wrapper {
+      flex: 1;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .section-header h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+      gap: 16px;
+    }
+
+    /* Blinkit Product Card */
+    .product-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 6px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      z-index: 2;
+    }
+
+    .product-badge i {
+      color: #0284c7;
+    }
+
+    .product-img-box {
+      width: 100%;
+      height: 135px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0 12px;
+    }
+
+    .product-img-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .product-info {
+      flex: 1;
+    }
+
+    .product-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .product-weight {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .product-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+
+    .price-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .mrp {
+      font-size: 11px;
+      color: #999;
+      text-decoration: line-through;
+    }
+
+    .add-btn {
+      background: #ffffff;
+      border: 1px solid var(--blinkit-green);
+      color: var(--blinkit-green);
+      padding: 6px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .add-btn:hover {
+      background: var(--blinkit-green);
+      color: #ffffff;
+    }
+
+    /* Counter Button (+ / -) */
+    .qty-counter {
+      display: flex;
+      align-items: center;
+      background: var(--blinkit-green);
+      border-radius: 8px;
+      color: #ffffff;
+      overflow: hidden;
+    }
+
+    .qty-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      padding: 6px 10px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .qty-display {
+      font-size: 13px;
+      font-weight: 700;
+      padding: 0 4px;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    /* Cart Slide-over Drawer */
+    .cart-drawer-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      display: none;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 100%;
+      max-width: 400px;
+      height: 100%;
+      background: #ffffff;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+    }
+
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .cart-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cart-header h3 {
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: #666;
+    }
+
+    .cart-items-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .cart-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      border: 1px solid #eee;
+      border-radius: 8px;
+    }
+
+    .cart-item-details {
+      flex: 1;
+    }
+
+    .cart-item-name {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .cart-item-price {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-top: 2px;
+    }
+
+    .cart-bill {
+      padding: 18px 20px;
+      background: #fafafa;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .bill-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 8px;
+      color: var(--text-muted);
+    }
+
+    .bill-total {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-dark);
+      border-top: 1px dashed var(--border-color);
+      padding-top: 8px;
+      margin-top: 8px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: var(--blinkit-green);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 12px;
+    }
+
+    .empty-cart-view {
+      text-align: center;
+      padding: 60px 20px;
+      color: #888;
+    }
+
+    .empty-cart-view i {
+      font-size: 48px;
+      color: #ccc;
+      margin-bottom: 12px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .category-sidebar {
+        display: none;
+      }
+      .delivery-location {
+        display: none;
+      }
+      .logo-box h1 {
+        font-size: 20px;
+      }
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement">
+    <span>Rasooee Fresh Club</span>
+    Wholesale cum Retail Distributor | Doorstep Online Delivery in Kondhwa, Pune[span_6](start_span)[span_6](end_span)[span_7](start_span)[span_7](end_span)!
+    <span>Call: 9209116500</span>[span_8](start_span)[span_8](end_span)
+  </aside>
+
+  <!-- Navbar -->
+  <header class="header">
+    <div class="header-content">
+      <div class="brand-section" onclick="filterCategory('All')">
+        <div class="logo-box">
+          <h1>Rasoee<span>Fresh</span></h1>
+          <div class="tagline-badge">Rasoee se Dil Tak, Pure & Fresh</div>[span_9](start_span)[span_9](end_span)
+        </div>
+        <div class="delivery-location">
+          <div class="delivery-time">
+            Delivery in 15 Mins <span>FAST</span>
+          </div>
+          <div class="delivery-address" title="SN 18, Sukhsagar Part-2, Near Khandoba Mandir, Kondhwa BK, Pune-46">
+            Kondhwa BK, Pune-46...[span_10](start_span)[span_10](end_span)
+          </div>
+        </div>
+      </div>
+
+      <!-- Search Input -->
+      <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder='Search "Fresh Tomatoes", "Amul Milk", "Apples"...' 
+          onkeyup="handleSearch()"
+        />
+      </div>
+
+      <!-- Actions -->
+      <div class="header-actions">
+        <button class="cart-btn" onclick="toggleCart()">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span id="cartCountBadge">0 items</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout Container -->
+  <div class="main-layout">
+    <!-- Categories Sidebar -->
+    <nav class="category-sidebar" aria-label="Product categories">
+      <div class="category-title">Categories</div>
+      <ul class="category-list">
+        <li class="category-item active" onclick="filterCategory('All', this)">
+          <i class="fa-solid fa-border-all"></i> All Items
+        </li>
+        <li class="category-item" onclick="filterCategory('Vegetables', this)">
+          <i class="fa-solid fa-carrot"></i> Fresh Vegetables[span_11](start_span)[span_11](end_span)
+        </li>
+        <li class="category-item" onclick="filterCategory('Fruits', this)">
+          <i class="fa-solid fa-apple-whole"></i> Fresh Fruits[span_12](start_span)[span_12](end_span)
+        </li>
+        <li class="category-item" onclick="filterCategory('Dairy Products', this)">
+          <i class="fa-solid fa-cheese"></i> Dairy Products[span_13](start_span)[span_13](end_span)
+        </li>
+        <li class="category-item" onclick="filterCategory('Spices', this)">
+          <i class="fa-solid fa-pepper-hot"></i> Pure Spices[span_14](start_span)[span_14](end_span)
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Product Grid Area -->
+    <main class="products-wrapper">
+      <div class="section-header">
+        <h2 id="currentCategoryTitle">All Products</h2>
+      </div>
+      <div class="product-grid" id="productGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Cart Slide-Over Drawer -->
+  <div class="cart-drawer-backdrop" id="cartBackdrop" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>My Cart (<span id="cartDrawerCount">0</span>)</h3>
+      <button class="close-cart" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="cart-items-list" id="cartItemsContainer">
+      <!-- Items dynamically populated -->
+    </div>
+
+    <div class="cart-bill" id="cartBillSection" style="display: none;">
+      <div class="bill-row">
+        <span>Item Total</span>
+        <span id="billItemTotal">₹0</span>
+      </div>
+      <div class="bill-row">
+        <span>Delivery Partner Fee</span>
+        <span style="color: var(--blinkit-green); font-weight: 700;">FREE</span>
+      </div>
+      <div class="bill-row bill-total">
+        <span>Grand Total</span>
+        <span id="billGrandTotal">₹0</span>
+      </div>
+      <button class="checkout-btn" onclick="sendWhatsAppOrder()">
+        <span>Order via WhatsApp</span>
+        <span id="btnPayAmount">₹0 <i class="fa-solid fa-chevron-right"></i></span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Product catalog with real product images (no emojis)
+    const products = [
+      {
+        id: 1,
+        name: "Fresh Hybrid Tomato",
+        weight: "1 kg",
+        price: 36,
+        mrp: 50,
+        category: "Vegetables",
+        image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        id: 2,
+        name: "Farm Fresh Potato (Aloo)",
+        weight: "1 kg",
+        price: 32,
+        mrp: 45,
+        category: "Vegetables",
+        image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        id: 3,
+        name: "Nashik Red Onion",
+        weight: "1 kg",
+        price: 28,
+        mrp: 40,
+        category: "Vegetables",
+        image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        id: 4,
+        name: "Fresh Green Capsicum",
+        weight: "500 g",
+        price: 45,
+        mrp: 60,
+        category: "Vegetables",
+        image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        id: 5,
+        name: "Royal Gala Fresh Apples",
+        weight: "4 pcs (~500g)",
+        price: 110,
+        mrp: 140,
+        category: "Fruits",
+        image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        id: 6,
+        name: "Robusta Banana (Pacha Kela)",
+        weight: "1 kg (5-6 pcs)",
+        price: 48,
+        mrp: 65,
+        category: "Fruits",
+        image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        id: 7,
+        name: "Nagpur Sweet Oranges",
+        weight: "1 kg",
+        price: 79,
+        mrp: 100,
+        category: "Fruits",
+        image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        id: 8,
+        name: "Fresh Cow Milk Pouch",
+        weight: "500 ml",
+        price: 29,
+        mrp: 30,
+        category: "Dairy Products",
+        image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        id: 9,
+        name: "Pure Fresh Malai Paneer",
+        weight: "200 g",
+        price: 88,
+        mrp: 105,
+        category: "Dairy Products",
+        image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        id: 10,
+        name: "Premium Pure Ghee",
+        weight: "500 ml",
+        price: 340,
+        mrp: 380,
+        category: "Dairy Products",
+        image: "https://images.unsplash.com/photo-1589927986089-35812388d1f4?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        id: 11,
+        name: "Pure Turmeric Powder (Haldi)",
+        weight: "200 g",
+        price: 52,
+        mrp: 65,
+        category: "Spices",
+        image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        id: 12,
+        name: "Whole Cumin Seeds (Jeera)",
+        weight: "100 g",
+        price: 49,
+        mrp: 65,
+        category: "Spices",
+        image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=400&q=80"
+      }
+    ];
+
+    let cart = {};
+    let activeCategory = "All";
+
+    // Initialize display
+    function init() {
+      renderProducts();
+    }
+
+    // Render Products Grid
+    function renderProducts(filterList = null) {
+      const grid = d
